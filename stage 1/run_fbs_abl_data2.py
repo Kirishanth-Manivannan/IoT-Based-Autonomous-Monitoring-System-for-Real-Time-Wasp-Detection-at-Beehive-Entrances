@@ -31,13 +31,10 @@ FRAME_HEIGHT = 480
 FRAMES_480P_DIR = Path("/mnt/ramdisk") / "frames_480p"
 FRAMES_480P_MAX = 100
 
-# used only to stimulate real time input as 10FPS per secand
-CAMERA_FPS = 30.0
-INPUT_FRAME_STRIDE = 3.0
-EFFECTIVE_FPS = CAMERA_FPS / INPUT_FRAME_STRIDE
-FRAME_INTERVAL = 1.0 / EFFECTIVE_FPS
-
-
+# used only to stimulate real time input as 8, 10, 12 and 15FPS per secand
+TARGET_FPS = float(os.getenv("FBS_TARGET_FPS", "15"))
+FRAME_INTERVAL = 1 / TARGET_FPS
+print(f"Testing: {TARGET_FPS:.2f} FPS")
 
 # delete files inside directory
 def clear_directory(dir_path: Path) -> None:
