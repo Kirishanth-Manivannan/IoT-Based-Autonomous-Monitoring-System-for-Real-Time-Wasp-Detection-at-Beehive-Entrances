@@ -279,5 +279,7 @@ while true; do
 
   fi
 
+  cleanup || true
+
   # start next cycle from the beginning.
 done
